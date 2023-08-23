@@ -10,6 +10,12 @@ typedef std::vector<std::pair<std::string, int>> pairlist_t;
 typedef std::string text_t;
 typedef int number_t;
 
+/*
+another way of defining alias is using 'using' keyword which is popular nowadays
+*/
+using another_text_t = std::string;
+using another_number_t = int;
+
 int main() {
     pairlist_t pairlist;
 
@@ -18,4 +24,11 @@ int main() {
 
     std::cout << text << "\n";
     std::cout << num << "\n";
+
+
+    another_text_t name = "Aacs Spkt";
+    another_number_t age = 24;
+
+    std::cout << name << "\n";
+    std::cout << age << "\n";
 }
