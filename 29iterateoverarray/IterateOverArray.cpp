@@ -12,4 +12,15 @@ int main() {
     for (int i = 0; i < sizeof(grades)/sizeof(char); i++) {
         std::cout << grades[i] << "\n";
     }
+
+    // using foreach loop
+    for(std::string student: students) {
+        std::cout << student << "\n";
+    }
+
+    int numGrades[] {65, 72, 81, 93};
+
+    for (int grade: numGrades) {
+        std::cout << grade << "\n";
+    }
 }
