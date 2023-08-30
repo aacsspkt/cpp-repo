@@ -12,6 +12,15 @@ struct Student {
     bool enrolled = true;
 };
 
+struct Car {
+    std::string model;
+    int year;
+    std::string color;
+};
+
+void printCar(Car &car);
+void paintCar(Car &car, std::string color);
+
 int main()
 {
     Student student;
@@ -39,5 +48,53 @@ int main()
     std::cout << student2.gpa << "\n";
     std::cout << student2.enrolled << "\n";
     
+
+    Car car1;
+    Car car2;
+
+    car1.model = "Mustang";
+    car1.year = 2023;
+    car1.color = "red";
+
+    car2.model = "Corvette";
+    car2.year = 2022;
+    car2.color = "blue";
+
+    // struct are passed as value so when we pass struct a copy is passed
+    // take a look at address of car1 outside and inside of function.
+    // std::cout << &car1 << "\n";
+    // printCar(car1);
+
+
+
+    // if we want to pass original value then we pass reference    
+    std::cout << &car1 << "\n";
+    printCar(car1);
+
+    paintCar(car1, "silver");
+    paintCar(car2, "gold");
+
+    printCar(car1);
+    printCar(car2);
+
+
     return 0;
+}
+
+// void printCar(Car car) {
+//     std::cout << &car << "\n";
+//     std::cout << car.model << "\n";
+//     std::cout << car.year << "\n";
+//     std::cout << car.color << "\n";
+// }
+
+void printCar(Car &car) {
+    std::cout << &car << "\n";
+    std::cout << car.model << "\n";
+    std::cout << car.year << "\n";
+    std::cout << car.color << "\n";
+}
+
+void paintCar(Car &car, std::string color) {
+    car.color = color;
 }
